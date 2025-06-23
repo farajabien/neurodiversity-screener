@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function AnalyticsPage() {
   return (
     <AnalyticsProvider pageType="analytics">
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+      <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
         {/* Header Section */}
         <div className="text-center space-y-8 max-w-3xl mx-auto mb-12">
           <div className="space-y-6">
@@ -76,19 +76,19 @@ export default function AnalyticsPage() {
 
           {/* Action Buttons */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Button asChild className="h-14 text-lg font-semibold bg-purple-600 hover:bg-purple-700 text-white">
+            <Button asChild className="mobile-btn-large bg-purple-600 hover:bg-purple-700 text-white">
               <Link href="/adhd">
                 <BarChart3 className="h-5 w-5 mr-2" />
                 ADHD Analytics
               </Link>
             </Button>
-            <Button asChild variant="outline" className="h-14 text-lg font-semibold">
+            <Button asChild variant="outline" className="mobile-btn-large">
               <Link href="/autism">
                 <BarChart3 className="h-5 w-5 mr-2" />
                 Autism Analytics
               </Link>
             </Button>
-            <Button asChild variant="outline" className="h-14 text-lg font-semibold">
+            <Button asChild variant="outline" className="mobile-btn-large">
               <Link href="/">
                 <Home className="h-5 w-5 mr-2" />
                 Back to Home

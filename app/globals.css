@@ -141,4 +141,98 @@
   .focus-visible {
     @apply outline-2 outline-primary outline-offset-2;
   }
+
+  /* Layout shift prevention */
+  .container {
+    @apply w-full max-w-7xl mx-auto;
+  }
+
+  /* Prevent layout shifts in navigation */
+  .nav-item {
+    @apply min-h-[44px] flex items-center;
+  }
+
+  /* Stable button sizing */
+  .btn-stable {
+    @apply min-h-[44px] px-4 py-2;
+  }
+
+  /* Mobile-first responsive containers */
+  .mobile-safe-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Prevent text wrapping shifts */
+  .text-stable {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis;
+  }
+
+  /* Fixed height for cards to prevent shifts */
+  .card-stable {
+    @apply min-h-[200px];
+  }
+
+  /* Stable grid layouts */
+  .grid-stable {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  @media (min-width: 640px) {
+    .grid-stable {
+      @apply grid-cols-2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-stable {
+      @apply grid-cols-3;
+    }
+  }
+
+  /* Image placeholder to prevent shifts */
+  .image-placeholder {
+    @apply bg-muted animate-pulse;
+  }
+
+  /* Loading state sizing */
+  .loading-container {
+    @apply min-h-[200px] flex items-center justify-center;
+  }
+
+  /* Mobile button adjustments */
+  @media (max-width: 640px) {
+    .mobile-btn {
+      @apply w-full h-12 text-base;
+    }
+    
+    .mobile-btn-large {
+      @apply w-full h-14 text-lg;
+    }
+  }
+
+  /* Prevent viewport height shifts */
+  .min-vh-safe {
+    min-height: 100dvh;
+  }
+
+  /* Stable flex containers */
+  .flex-stable {
+    @apply flex flex-col min-h-0;
+  }
+
+  /* Consistent text sizing */
+  .text-responsive {
+    @apply text-sm sm:text-base;
+  }
+
+  /* Prevent image layout shifts */
+  img, svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Stable form elements */
+  input, textarea, select {
+    @apply min-h-[44px];
+  }
 }

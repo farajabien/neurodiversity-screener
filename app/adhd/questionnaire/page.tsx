@@ -31,10 +31,12 @@ export default function ADHDQuestionnairePage() {
 
   if (!questionnaire.isInitialized) {
     return (
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600 mx-auto"></div>
-          <p className="text-sm text-muted-foreground mt-2">Loading questionnaire...</p>
+      <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
+        <div className="loading-container">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600 mx-auto"></div>
+            <p className="text-sm text-muted-foreground mt-2">Loading questionnaire...</p>
+          </div>
         </div>
       </div>
     );
@@ -43,23 +45,25 @@ export default function ADHDQuestionnairePage() {
   const currentQuestionData = questionnaire.currentQuestion;
   if (!currentQuestionData) {
     return (
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
-        <div className="text-center">
-          <p className="text-muted-foreground">Question not found.</p>
-          <Button asChild className="mt-4">
-            <Link href="/adhd">Back to ADHD Screener</Link>
-          </Button>
+      <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
+        <div className="loading-container">
+          <div className="text-center">
+            <p className="text-muted-foreground">Question not found.</p>
+            <Button asChild className="mt-4 btn-stable">
+              <Link href="/adhd">Back to ADHD Screener</Link>
+            </Button>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+    <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
       {/* Header */}
       <div className="text-center space-y-4 max-w-2xl mx-auto mb-8">
-        <div className="flex items-center justify-center gap-3">
-          <div className="p-2 bg-orange-100 dark:bg-orange-950 rounded-lg">
+        <div className="flex items-center justify-center gap-3 min-h-[48px]">
+          <div className="p-2 bg-orange-100 dark:bg-orange-950 rounded-lg flex-shrink-0">
             <Brain className="h-6 w-6 text-orange-600 dark:text-orange-400" />
           </div>
           <h1 className="text-2xl font-bold">ADHD Screener</h1>

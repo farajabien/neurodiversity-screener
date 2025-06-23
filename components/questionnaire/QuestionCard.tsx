@@ -26,17 +26,17 @@ export function QuestionCard({
   className = ""
 }: QuestionCardProps) {
   return (
-    <Card className={`max-w-2xl mx-auto ${className}`}>
+    <Card className={`max-w-2xl mx-auto card-stable ${className}`}>
       <CardHeader className="space-y-4">
-        <div className="flex items-center justify-between text-sm text-muted-foreground">
-          <span>Question {questionNumber} of {totalQuestions}</span>
+        <div className="flex items-center justify-between text-sm text-muted-foreground min-h-[24px]">
+          <span className="flex-1">Question {questionNumber} of {totalQuestions}</span>
           {part && (
-            <span className="px-2 py-1 bg-muted rounded-md text-xs font-medium">
+            <span className="px-2 py-1 bg-muted rounded-md text-xs font-medium flex-shrink-0 ml-2">
               Part {part}
             </span>
           )}
         </div>
-        <CardTitle className="text-lg leading-relaxed">
+        <CardTitle className="text-lg leading-relaxed min-h-[28px]">
           {question}
         </CardTitle>
       </CardHeader>
@@ -48,15 +48,15 @@ export function QuestionCard({
           className="space-y-4"
         >
           {options.map((option, index) => (
-            <div key={index} className="flex items-center space-x-4">
+            <div key={index} className="flex items-start space-x-4">
               <RadioGroupItem 
                 value={index.toString()} 
                 id={`option-${index}`}
-                className="shrink-0"
+                className="shrink-0 mt-3"
               />
               <Label 
                 htmlFor={`option-${index}`} 
-                className="text-sm cursor-pointer flex-1 py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors min-h-[44px] flex items-center font-medium"
+                className="text-sm cursor-pointer flex-1 py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors touch-target flex items-center font-medium leading-relaxed"
               >
                 {option}
               </Label>

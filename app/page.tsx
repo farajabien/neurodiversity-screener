@@ -7,7 +7,7 @@ import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 export default function HomePage() {
   return (
     <AnalyticsProvider pageType="home">
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+      <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
       {/* Hero Section - Simplified */}
       <div className="text-center space-y-8 max-w-3xl mx-auto">
         <div className="space-y-6">
@@ -76,11 +76,11 @@ export default function HomePage() {
             <Button 
               asChild 
               size="lg" 
-              className="w-full h-14 text-lg font-semibold text-white bg-orange-600 hover:bg-orange-700 shadow-lg hover:shadow-xl transition-all duration-200"
+              className="mobile-btn-large text-white bg-orange-600 hover:bg-orange-700 shadow-lg hover:shadow-xl transition-all duration-200"
             >
               <Link href="/adhd">
                 Start ADHD Screening
-                <ArrowRight className="h-5 w-5 ml-2" />
+                <ArrowRight className="h-5 w-5 ml-2 flex-shrink-0" />
               </Link>
             </Button>
           </CardContent>
@@ -117,11 +117,11 @@ export default function HomePage() {
             <Button 
               asChild 
               size="lg" 
-              className="w-full h-14 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-200"
+              className="mobile-btn-large text-white bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-200"
             >
               <Link href="/autism">
                 Start Autism Screening
-                <ArrowRight className="h-5 w-5 ml-2" />
+                <ArrowRight className="h-5 w-5 ml-2 flex-shrink-0" />
               </Link>
             </Button>
           </CardContent>
@@ -153,7 +153,7 @@ export default function HomePage() {
         </div>
 
         {/* Quick Access Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid-stable sm:grid-cols-2 gap-4">
           <Link 
             href="/analytics" 
             className="group bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4 text-center hover:border-purple-300 dark:hover:border-purple-700 transition-all duration-200"

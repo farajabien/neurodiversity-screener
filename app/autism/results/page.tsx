@@ -25,28 +25,47 @@ export default function AutismResultsPage() {
   const [responses, setResponses] = useState<Record<number, number> | null>(null);
 
   useEffect(() => {
-    // Get responses from localStorage
-    const savedResponses = localStorage.getItem('autism-questionnaire-responses');
-    if (savedResponses) {
-      const parsedResponses = JSON.parse(savedResponses);
-      setResponses(parsedResponses);
-      
-      // Convert responses to the expected format
-      const formattedResponses = Object.entries(parsedResponses).map(([questionIndex, responseIndex]) => ({
-        questionId: `autism-${questionIndex}`,
-        responseIndex: responseIndex as number
-      }));
-      
-      // Calculate scores
-      const scoreResult = calculateAutismScore(formattedResponses);
-      setResults(scoreResult);
+    // Get responses from localStorage - check both possible storage keys
+    let savedData = localStorage.getItem('autism-questionnaire_results');
+    
+    // Fallback to old format if new format doesn't exist
+    if (!savedData) {
+      savedData = localStorage.getItem('autism-questionnaire-responses');
+    }
+    
+    if (savedData) {
+      try {
+        const parsedData = JSON.parse(savedData);
+        
+        // Handle both new and old data formats
+        let responsesArray;
+        if (parsedData.responses) {
+          // New format from useQuestionnaire hook
+          responsesArray = parsedData.responses;
+          setResponses(responsesArray);
+        } else {
+          // Old format - convert object to responses array
+          const responsesObj = parsedData;
+          setResponses(responsesObj);
+          responsesArray = Object.entries(responsesObj).map(([questionIndex, responseIndex]) => ({
+            questionId: `autism-${questionIndex}`,
+            responseIndex: responseIndex as number
+          }));
+        }
+        
+        // Calculate scores
+        const scoreResult = calculateAutismScore(responsesArray);
+        setResults(scoreResult);
+      } catch (error) {
+        console.error('Error parsing saved responses:', error);
+      }
     }
   }, []);
 
   if (!results || !responses) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950">
-        <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+        <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
           <div className="max-w-2xl mx-auto text-center">
             <Card className="border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-950">
               <CardContent className="pt-6">
@@ -119,7 +138,7 @@ export default function AutismResultsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950">
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+      <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Header */}
           <div className="text-center space-y-4">
@@ -162,7 +181,7 @@ export default function AutismResultsPage() {
             <Button 
               asChild 
               size="lg" 
-              className="w-full h-14 text-lg font-semibold bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-200"
+              className="mobile-btn-large bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-200"
             >
               <Link href="/autism/questionnaire">
                 <RotateCcw className="h-5 w-5 mr-3" />

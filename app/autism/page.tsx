@@ -8,7 +8,7 @@ import { PdfDownloadButton } from "@/components/analytics/PdfDownloadButton";
 export default function AutismScreenerPage() {
   return (
     <AnalyticsProvider pageType="autism">
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+      <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
         {/* Header Section - Simplified */}
         <div className="text-center space-y-8 max-w-3xl mx-auto">
           <div className="space-y-6">
@@ -77,7 +77,7 @@ export default function AutismScreenerPage() {
               <Button 
                 asChild 
                 size="lg" 
-                className="w-full h-16 text-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-200"
+                className="mobile-btn-large text-white bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 <Link href="/autism/questionnaire">
                   Begin Autism Screening
@@ -130,7 +130,7 @@ export default function AutismScreenerPage() {
                type="autism"
                className="h-12"
              />
-             <Button variant="outline" asChild className="h-12">
+             <Button variant="outline" asChild className="btn-stable">
                <Link href="/">
                  ← Back to Home
                </Link>

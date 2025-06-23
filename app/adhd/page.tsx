@@ -8,7 +8,7 @@ import { PdfDownloadButton } from "@/components/analytics/PdfDownloadButton";
 export default function ADHDScreenerPage() {
   return (
     <AnalyticsProvider pageType="adhd">
-      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+      <div className="container mobile-safe-padding py-8 sm:py-12 lg:py-16">
       {/* Header Section - Simplified */}
       <div className="text-center space-y-8 max-w-3xl mx-auto">
         <div className="space-y-6">
@@ -77,7 +77,7 @@ export default function ADHDScreenerPage() {
             <Button 
               asChild 
               size="lg" 
-              className="w-full h-16 text-xl font-semibold bg-orange-600 hover:bg-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-200"
+              className="mobile-btn-large bg-orange-600 hover:bg-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-200"
             >
               <Link href="/adhd/questionnaire">
                 Begin ADHD Screening
@@ -130,7 +130,7 @@ export default function ADHDScreenerPage() {
              type="adhd"
              className="h-12"
            />
-           <Button variant="outline" asChild className="h-12">
+           <Button variant="outline" asChild className="btn-stable">
              <Link href="/">
                ← Back to Home
              </Link>

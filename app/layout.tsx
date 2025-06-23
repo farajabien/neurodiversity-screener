@@ -34,26 +34,26 @@ export const metadata: Metadata = {
 function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-              <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-          <Brain className="h-6 w-6 text-primary" />
+      <div className="container mobile-safe-padding flex h-16 items-center justify-between">
+        <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity nav-item">
+          <Brain className="h-6 w-6 text-primary flex-shrink-0" />
           <span className="text-xl font-bold">NeuroScreen</span>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/" className="nav-item text-sm font-medium hover:text-primary transition-colors">
             Home
           </Link>
-          <Link href="/adhd" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/adhd" className="nav-item text-sm font-medium hover:text-primary transition-colors">
             ADHD Screener
           </Link>
-          <Link href="/autism" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/autism" className="nav-item text-sm font-medium hover:text-primary transition-colors">
             Autism Screener
           </Link>
-          <Link href="/analytics" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/analytics" className="nav-item text-sm font-medium hover:text-primary transition-colors">
             Analytics
           </Link>
-          <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="/about" className="nav-item text-sm font-medium hover:text-primary transition-colors">
             About
           </Link>
         </nav>
@@ -62,9 +62,9 @@ function Header() {
           href="https://github.com/farajabien/neurodiversity-screener"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors nav-item min-w-[60px] justify-end"
         >
-          <Github className="h-4 w-4" />
+          <Github className="h-4 w-4 flex-shrink-0" />
           <span className="hidden sm:inline">GitHub</span>
         </Link>
       </div>
@@ -75,8 +75,8 @@ function Header() {
 function Footer() {
   return (
     <footer className="border-t bg-background">
-              <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+      <div className="container mobile-safe-padding py-8">
+        <div className="grid-stable gap-8 md:grid-cols-4">
           {/* Branding */}
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
