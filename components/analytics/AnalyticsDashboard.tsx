@@ -84,10 +84,12 @@ export function AnalyticsDashboard() {
             <Download className="h-4 w-4 mr-2" />
             Export
           </Button>
-          <Button variant="destructive" size="sm" onClick={handleReset}>
-            <RotateCcw className="h-4 w-4 mr-2" />
-            Reset
-          </Button>
+          {process.env.NODE_ENV === 'development' && (
+            <Button variant="destructive" size="sm" onClick={handleReset}>
+              <RotateCcw className="h-4 w-4 mr-2" />
+              Reset
+            </Button>
+          )}
         </div>
       </div>
 
@@ -223,7 +225,9 @@ export function AnalyticsDashboard() {
           <p><strong>Console:</strong> Click &quot;Log to Console&quot; then open browser dev tools (F12) to see formatted analytics</p>
           <p><strong>Export:</strong> Download analytics as JSON file for external analysis</p>
           <p><strong>Refresh:</strong> Updates stats from localStorage</p>
-          <p><strong>Reset:</strong> Clears all analytics data (useful for testing)</p>
+          {process.env.NODE_ENV === 'development' && (
+            <p><strong>Reset:</strong> Clears all analytics data (only available in development)</p>
+          )}
         </CardContent>
       </Card>
     </div>
