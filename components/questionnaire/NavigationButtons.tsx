@@ -64,7 +64,7 @@ export function NavigationButtons({
           onClick={onNext}
           disabled={!canGoNext || isLoading}
           size="lg"
-          className="mobile-btn min-w-[120px] sm:min-w-[160px] font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+          className="min-w-[160px] h-12 sm:h-auto font-semibold shadow-md hover:shadow-lg transition-all duration-200"
         >
           <span className="hidden sm:inline">Next Question</span>
           <span className="sm:hidden">Next</span>
